@@ -26,13 +26,13 @@ typedef struct{
 *return:
 *des
 */
-array* readFile( FILE* read , array* readIn);
+void readFile( FILE* read , array* readIn);
 
-array* allocate2D ( array* readIn );
+void allocate2D ( array* readIn );
 
 void free2D ( array readIn);
 
-parity* calculateParity( parity* pArray , array readIn1, array readIn2 );
+void calculateParity( parity* pArray , array readIn1, array readIn2 );
 
 bool checkArgv(int i);
 

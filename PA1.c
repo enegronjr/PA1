@@ -6,7 +6,7 @@
 **********************/
 #include "PA1.h"
 
-array* readFile( FILE* read , array* readIn){
+void readFile( FILE* read , array* readIn){
   fscanf(read , "%d %d\n" , &readIn->row , &readIn->column);
   allocate2D(readIn);
   for(int i = 0; i < readIn->row; i++){
@@ -14,15 +14,13 @@ array* readFile( FILE* read , array* readIn){
       fscanf(read, "%d " , &readIn->data[i][j]);
     }
   }
-  return readIn;
 }
 
-array* allocate2D ( array* readIn ){
+void allocate2D ( array* readIn ){
   readIn->data = (int**)malloc(sizeof(int) * readIn->row * readIn->row);
   for(int i = 0; i < readIn->row; i++){
     readIn->data[i] = (int*)malloc(sizeof(int) * readIn->column);
   }
-  return readIn;
 }
 
 void free2D ( array readIn){
@@ -32,7 +30,7 @@ void free2D ( array readIn){
   free(readIn.data);
 }
 
-parity* calculateParity( parity* pArray , array readIn1, array readIn2 ){
+void calculateParity( parity* pArray , array readIn1, array readIn2 ){
   pArray->parityRow = malloc(sizeof(int) * 2);
   pArray->parityRow[0] = malloc(sizeof(int) * readIn1.row);
   pArray->parityRow[1] = malloc(sizeof(int) * readIn2.row);
@@ -65,8 +63,6 @@ parity* calculateParity( parity* pArray , array readIn1, array readIn2 ){
     pArray->parityColumn[0][i] = (pArray->parityColumn[0][i])%2;
     pArray->parityColumn[1][i] = (pArray->parityColumn[1][i])%2;
   }
-
-  return pArray;
 }
 
 bool checkArgv(int i){
