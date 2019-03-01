@@ -1,0 +1,9 @@
+1. While programming I was not able to open the files. Also, all
+the data was not being read in and was crashing before it finished.
+2. To open the files, I had to make the variable type a FILE**
+because I was passing them by pointer. The data wasn't being scanned
+in and the program was crashing because I was not allocating enough
+memory to the 2d arrays.
+3. I liked the complexity of this assignment. Most of the other programs
+don't require me to use much critical thinking but this assignment
+required me to actually sit down and plan out my program. 
